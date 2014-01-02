@@ -1,0 +1,9 @@
+{
+  "name": "pp_webapp",
+  "dependencies": {
+    "foundation": "zurb/bower-foundation",
+    "font-awesome": "~4.0.3",
+    "modernizr": "latest",
+    "jquery": "latest" 
+  }
+}
