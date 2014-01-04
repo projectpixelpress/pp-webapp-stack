@@ -107,6 +107,14 @@ module.exports = function(grunt) {
 			}
 		},
 
+		browserify: {
+		  dist: {
+		    files: {
+		      'app/js/main.js': ['app/js/app.js']
+		    }
+		  }
+		},
+
 		watch: {
 			grunt: {
 				files: ['Gruntfile.js']
@@ -114,6 +122,10 @@ module.exports = function(grunt) {
 			sass: {
 				files: 'app/scss/{,*/}*.scss',
 				tasks: ['sass']
+			},
+			browserify: {
+			    files: 'app/js/{,*/}*.js',
+			    tasks: ['browserify']
 			},
 			livereload: {
 				files: ['app/*.html', 'views/{,*/}*.ejs', 'views/{,*/}*.hbs', 'views/{,*/}*.handlebars', 'app/js/{,*/}*.js', 'app/css/{,*/}*.css', 'app/img/{,*/}*.{jpg,gif,svg,jpeg,png}'],
@@ -131,10 +143,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-usemin');
+	grunt.loadNpmTasks('grunt-browserify');
 
 	grunt.registerTask('scaffold', ['copy:scaffold']);
 	grunt.registerTask('build', ['sass']);
-	grunt.registerTask('default', ['build', 'watch']);
+	grunt.registerTask('default', ['build', 'browserify', 'watch']);
 	grunt.registerTask('validate-js', ['jshint']);
 	grunt.registerTask('publish', ['clean:dist', 'validate-js', 'useminPrepare', 'copy:dist', 'usemin']);
 

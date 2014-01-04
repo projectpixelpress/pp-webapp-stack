@@ -1,6 +1,6 @@
-Module = {
+module.exports = {
 	config: {
-		greet: "Howdy",
+		greet: "What up",
 		from: "Module.js"
 	},
 

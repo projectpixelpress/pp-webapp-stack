@@ -1,10 +1,10 @@
-'use strict';
+var jquery = require('./vendor/jquery.min'),
+	Mod = require('./modules/Module');
 
 var PP = (function() {
 		
 	var privateVariable = 'App fired!',
-		docElem = document.documentElement,
-		module;
+		docElem = document.documentElement;
 
 	return {
 		publicFunction: function() {
@@ -12,9 +12,6 @@ var PP = (function() {
 		},
 		userAgentInit: function() {
 			docElem.setAttribute('data-useragent', navigator.userAgent);
-		},
-		module: function () {
-			Module.init();
 		}
 	};
 
@@ -22,12 +19,12 @@ var PP = (function() {
 
 (function() {
 
-	//foundation init
-	$(document).foundation();
-
 	PP.publicFunction();
 	PP.userAgentInit();
 
-	PP.module();
+	Mod.init({
+		greet: "What up",
+		from: "Module.js"
+	});
 
 })();
