@@ -8,7 +8,7 @@ Requires node, npm and bower installed globally
 
 Also a good idea to have LiveReload chrome extension installed and running
 
-`(sudo) npm install -g grunt-cli bower` - make sure you have grunt and bower installed 
+`(sudo) npm install -g grunt-cli bower browserify` - make sure you have grunt, browserify and bower installed 
 
 `npm install` - install node modules
 
